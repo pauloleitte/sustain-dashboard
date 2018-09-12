@@ -1,0 +1,38 @@
+<div class="container">
+  <h3 class="col-md-4 mb-4">Chamados Diários</h3>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+            <th scope="col">Usuário</th>
+            <th scope="col">Fechados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of listaDeChamadosPorFuncionarioDiario">
+          <td>{{usuario.NomeProfissional}}</td>
+          <td>{{usuario.ChamadosFechados}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <h3 class="col-md-4 mb-4">Chamados Mensal</h3>
+    <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Usuário</th>
+              <th scope="col">Fechados</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of listaDeChamadosPorFuncionarioMensal">
+                <td>{{usuario.NomeProfissional}}</td>
+                <td>{{usuario.ChamadosFechados}}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+</div>
+
+
