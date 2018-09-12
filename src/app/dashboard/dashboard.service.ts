@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 export class DashboardService{
 
     //url = 'http://localhost:29215/api/Chamados/'
-    url = 'http://chamadoshpapi.azurewebsites.net/api/Chamados/'
+    url = 'https://chamadoshpapi.azurewebsites.net/api/Chamados/'
 
     constructor(private conexaoApi: HttpClient){}
     listar(opcao): Observable<any>{
