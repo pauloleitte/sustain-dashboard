@@ -7,13 +7,17 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardService } from './dashboard/dashboard.service';
 import { FooterComponent } from './footer/footer.component';
+import { CardComponent } from './card/card.component';
+import { TablesComponent } from './tables/tables.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    CardComponent,
+    TablesComponent
   ],
   imports: [
     BrowserModule,

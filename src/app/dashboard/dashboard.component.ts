@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { DashboardService } from "./dashboard.service";
-import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "hp-dashboard",
@@ -16,7 +15,6 @@ export class DashboardComponent implements OnInit {
     NomeProfissional: '',
     ChamadosFechados: ''
   }];
-
 
   constructor(private serviceDashboard: DashboardService) {}
 

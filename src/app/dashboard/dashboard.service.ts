@@ -14,5 +14,9 @@ export class DashboardService{
     listar(opcao): Observable<any>{
         return this.conexaoApi.get<any>(`${this.url}${opcao}`)
     }
+    
+    chamados(opcao): Observable<any>{
+        return this.conexaoApi.get<any>(`${this.url}${opcao}`)
+    }
 
 }
