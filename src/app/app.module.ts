@@ -8,7 +8,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardService } from './dashboard/dashboard.service';
 import { FooterComponent } from './footer/footer.component';
 import { CardComponent } from './card/card.component';
-import { TablesComponent } from './tables/tables.component';
+import { ModuloRoteamento } from './app.routing.module';
+import { AutomovelComponent } from './automovel/automovel.component';
+import { MassificadosComponent } from './massificados/massificados.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,13 @@ import { TablesComponent } from './tables/tables.component';
     DashboardComponent,
     FooterComponent,
     CardComponent,
-    TablesComponent
+    AutomovelComponent,
+    MassificadosComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ModuloRoteamento,
   ],
   providers: [
     DashboardService

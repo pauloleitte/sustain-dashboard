@@ -1,8 +1,24 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/dashboard">
     <img src="https://www.algotech.solutions/blog/wp-content/uploads/2016/02/angular-reactive-chart-hero.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
     Chamados
   </a>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li ng-class="nav-item">
+        <a class="nav-link" routerLink="/dashboard">Home</a>
+      </li>
+      <li ng-class="nav-item">
+        <a class="nav-link" routerLink="/automovel">Automóvel</a>
+      </li>
+      <li ng-class="nav-item">
+        <a class="nav-link" routerLink="/massificado">Massificado</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
