@@ -9,6 +9,7 @@ const rotas: Routes = [
     { path: "dashboard", component: DashboardComponent },
     { path: "automovel", component: AutomovelComponent },
     { path: "massificado", component: MassificadosComponent},
+    { path: "", component: DashboardComponent},
     { path: "**", redirectTo: "" }
   ];
   
