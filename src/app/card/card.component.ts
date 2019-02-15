@@ -18,7 +18,6 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     this.serviceDashboard.chamados(10).subscribe(chamadosApi =>{
       this.chamadosDiarioFechados = chamadosApi[0].chamadosFechadosDiario
-      console.log(chamadosApi[0].chamadosFechadosDiario)
     })
 
     this.serviceDashboard.chamados(8).subscribe(chamadosApi =>{
