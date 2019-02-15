@@ -20,10 +20,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.serviceDashboard.listar(7).subscribe(chamadosApi => {
-      this.listaDeChamadosPorFuncionarioMensal = chamadosApi.Table;
+      this.listaDeChamadosPorFuncionarioMensal = chamadosApi;
     });
     this.serviceDashboard.listar(6).subscribe(chamadosApi => {
-      this.listaDeChamadosPorFuncionarioDiario = chamadosApi.Table;
+      this.listaDeChamadosPorFuncionarioDiario = chamadosApi;
     });
   }
 }
