@@ -19,10 +19,10 @@ export class DashboardComponent implements OnInit {
   constructor(private serviceDashboard: DashboardService) {}
 
   ngOnInit() {
-    this.serviceDashboard.listar(5).subscribe(chamadosApi => {
+    this.serviceDashboard.listar(7).subscribe(chamadosApi => {
       this.listaDeChamadosPorFuncionarioMensal = chamadosApi.Table;
     });
-    this.serviceDashboard.listar(2).subscribe(chamadosApi => {
+    this.serviceDashboard.listar(6).subscribe(chamadosApi => {
       this.listaDeChamadosPorFuncionarioDiario = chamadosApi.Table;
     });
   }
