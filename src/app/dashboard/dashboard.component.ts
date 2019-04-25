@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DashboardService } from "./dashboard.service";
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: "hp-dashboard",
@@ -16,7 +17,9 @@ export class DashboardComponent implements OnInit {
     ChamadosFechados: ''
   }];
 
-  constructor(private serviceDashboard: DashboardService) {}
+  constructor(
+    private serviceDashboard: DashboardService,
+    private decimalpipe : DecimalPipe) { }
 
   ngOnInit() {
     this.serviceDashboard.listar(7).subscribe(chamadosApi => {

@@ -24,12 +24,14 @@
             <tr>
               <th scope="col">Usuário</th>
               <th scope="col">Fechados</th>
+              <th scope="col">Média</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let usuario of listaDeChamadosPorFuncionarioMensal">
                 <td>{{usuario.NomeProfissional}}</td>
                 <td>{{usuario.ChamadosFechados}}</td>
+                <td>{{usuario.ChamadosFechados / 22 | number: '1.2-2'}}</td>
             </tr>
           </tbody>
         </table>
