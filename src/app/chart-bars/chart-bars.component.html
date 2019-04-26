@@ -3,11 +3,12 @@
 </div>
 <div>
   <div style="display: block">
-    <canvas baseChart
+    <canvas baseChart 
             [datasets]="barChartData"
             [labels]="barChartLabels"
             [options]="barChartOptions"
             [legend]="barChartLegend"
+            [plugins]="barChartPlugins"
             [chartType]="barChartType">
     </canvas>
   </div>
@@ -22,6 +23,7 @@
             [labels]="barChartLabelsM"
             [options]="barChartOptions"
             [legend]="barChartLegend"
+            [plugins]="barChartPlugins"
             [chartType]="barChartType">
     </canvas>
   </div>

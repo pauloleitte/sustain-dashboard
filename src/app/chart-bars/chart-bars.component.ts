@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common'
 import { DashboardService } from "../dashboard/dashboard.service";
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'hp-chart-bars',
@@ -12,11 +14,19 @@ export class ChartBarsComponent implements OnInit {
   constructor(private serviceDashboard: DashboardService,
     public datepipe: DatePipe) { }
 
-  public barChartOptions = {
-    scaleShowVerticalLines: false,
-    responsive: true
-  };
+    public barChartOptions: ChartOptions = {
+      responsive: true,
+      // We use these empty structures as placeholders for dynamic theming.
+      scales: { xAxes: [{}], yAxes: [{}] },
+      plugins: {
+        datalabels: {
+          anchor: 'end',
+          align: 'end',
+        }
+      }
+    };
 
+  public barChartPlugins = [pluginDataLabels];
 
   public barChartLabels = [];
   public barChartType = 'bar';

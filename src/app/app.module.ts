@@ -13,6 +13,9 @@ import { ModuloRoteamento } from './app.routing.module';
 import { AutomovelComponent } from './automovel/automovel.component';
 import { MassificadosComponent } from './massificados/massificados.component';
 import { ChartBarsComponent } from './chart-bars/chart-bars.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { ChartBarsComponent } from './chart-bars/chart-bars.component';
     CardComponent,
     AutomovelComponent,
     MassificadosComponent,
-    ChartBarsComponent
+    ChartBarsComponent,
+    SidebarComponent,
+    NavbarComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

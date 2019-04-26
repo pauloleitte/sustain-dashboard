@@ -1,0 +1,58 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card card-plain">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title mt-0"> Fechamento Diário</h4>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                                <th scope="col">Usuário</th>
+                                <th scope="col">Fechados</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let usuario of listaDeChamadosPorFuncionarioDiario">
+                              <td>{{usuario.NomeProfissional}}</td>
+                              <td>{{usuario.ChamadosFechados}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-12">
+              <div class="card card-plain">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title mt-0"> Fechamento Mensal</h4>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">Usuário</th>
+                                <th scope="col">Fechados</th>
+                                <th scope="col">Média</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let usuario of listaDeChamadosPorFuncionarioMensal">
+                                  <td>{{usuario.NomeProfissional}}</td>
+                                  <td>{{usuario.ChamadosFechados}}</td>
+                                  <td>{{usuario.ChamadosFechados / 22 | number: '1.2-2'}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
