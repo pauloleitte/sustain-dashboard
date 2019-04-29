@@ -1,4 +1,4 @@
-<div class="main-content">
+<!-- <div class="main-content">
   <div class="container-fluid">
       <div class="row">
           <div class="col-md-12">
@@ -54,5 +54,82 @@
               </div>
           </div>
       </div>
+  </div>
+</div> -->
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-danger">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Listas</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item active">
+                    <a href="#diario" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">access_time</i>Diario
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item active">
+                    <a href="#mensal" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">calendar_today</i>Mensal
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="diario">
+                <div class="card-content table-responsive table-full-width">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                            <th scope="col">Usuário</th>
+                            <th scope="col">Fechados</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let usuario of listaDeChamadosPorFuncionarioDiario">
+                          <td>{{usuario.NomeProfissional}}</td>
+                          <td>{{usuario.ChamadosFechados}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="mensal">
+                <div class="card-content table-responsive table-full-width">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Usuário</th>
+                          <th scope="col">Fechados</th>
+                          <th scope="col">Média</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let usuario of listaDeChamadosPorFuncionarioMensal">
+                            <td>{{usuario.NomeProfissional}}</td>
+                            <td>{{usuario.ChamadosFechados}}</td>
+                            <td>{{usuario.ChamadosFechados / 22 | number: '1.2-2'}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

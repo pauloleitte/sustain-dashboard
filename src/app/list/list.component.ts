@@ -17,16 +17,19 @@ export class ListComponent implements OnInit {
     ChamadosFechados: ''
   }];
 
-  constructor(   private serviceDashboard: DashboardService) { }
+  constructor(private serviceDashboard: DashboardService) { }
 
   ngOnInit() {
 
-    this.serviceDashboard.listar(7).subscribe(chamadosApi => {
+    this.serviceDashboard.listar(7)
+    .subscribe(chamadosApi => {
       this.listaDeChamadosPorFuncionarioMensal = chamadosApi;
     });
-    this.serviceDashboard.listar(6).subscribe(chamadosApi => {
+    this.serviceDashboard.listar(6)
+    .subscribe(chamadosApi => {
       this.listaDeChamadosPorFuncionarioDiario = chamadosApi;
     });
+
   }
 
 }

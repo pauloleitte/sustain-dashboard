@@ -1,0 +1,183 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-danger">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Chamados</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item active">
+                    <a href="#auto" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">local_taxi</i>Automóvel
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#massificado" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">account_balance</i> Massificados
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#cargas" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">gavel</i> Cargas
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#centralbonus" class="nav-link" data-toggle="tab">
+                        <i class="material-icons">donut_small</i> Central de Bonus
+                        <div class="ripple-container"></div>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#webmethods" class="nav-link" data-toggle="tab">
+                          <i class="material-icons">room_service</i> WebMethods
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="auto">
+                <div class="card-content table-responsive table-full-width">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Incidente</th>
+                          <th scope="col">Título</th>
+                          <th scope="col">Prioridade</th>
+                          <th scope="col">Vencimento</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let chamado of listChamadosAutomovel">
+                          <td>{{chamado.IdIncidente}}</td>
+                          <td>{{chamado.Titulo}}</td>
+                          <td>{{chamado.Prioridade}}</td>
+                          <td>{{chamado.DataNextBreachOLA}}</td>
+                          <td>{{chamado.Status}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="massificado">
+                <div class="card-content table-responsive table-full-width">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Incidente</th>
+                          <th scope="col">Título</th>
+                          <th scope="col">Prioridade</th>
+                          <th scope="col">Vencimento</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let chamado of listChamadosMassificados">
+                          <td>{{chamado.IdIncidente}}</td>
+                          <td>{{chamado.Titulo}}</td>
+                          <td>{{chamado.Prioridade}}</td>
+                          <td>{{chamado.DataNextBreachOLA}}</td>
+                          <td>{{chamado.Status}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="cargas">
+                <div class="card-content table-responsive table-full-width">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Incidente</th>
+                          <th scope="col">Título</th>
+                          <th scope="col">Prioridade</th>
+                          <th scope="col">Vencimento</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let chamado of listChamadosCargas">
+                          <td>{{chamado.IdIncidente}}</td>
+                          <td>{{chamado.Titulo}}</td>
+                          <td>{{chamado.Prioridade}}</td>
+                          <td>{{chamado.DataNextBreachOLA}}</td>
+                          <td>{{chamado.Status}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="centralbonus">
+                <div class="card-content table-responsive table-full-width">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Incidente</th>
+                          <th scope="col">Título</th>
+                          <th scope="col">Prioridade</th>
+                          <th scope="col">Vencimento</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let chamado of listChamadosCentralBonus">
+                          <td>{{chamado.IdIncidente}}</td>
+                          <td>{{chamado.Titulo}}</td>
+                          <td>{{chamado.Prioridade}}</td>
+                          <td>{{chamado.DataNextBreachOLA}}</td>
+                          <td>{{chamado.Status}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="webmethods">
+                <div class="card-content table-responsive table-full-width">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Incidente</th>
+                          <th scope="col">Título</th>
+                          <th scope="col">Prioridade</th>
+                          <th scope="col">Vencimento</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let chamado of listChamadosWebMethods">
+                          <td>{{chamado.IdIncidente}}</td>
+                          <td>{{chamado.Titulo}}</td>
+                          <td>{{chamado.Prioridade}}</td>
+                          <td>{{chamado.DataNextBreachOLA}}</td>
+                          <td>{{chamado.Status}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
