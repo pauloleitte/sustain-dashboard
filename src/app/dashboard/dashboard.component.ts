@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { DecimalPipe, DatePipe } from '@angular/common';
 import { DashboardService } from "../dashboard/dashboard.service";
+import { async } from "@angular/core/testing";
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
+import { draw, generate } from 'patternomaly'
 
 @Component({
   selector: "hp-dashboard",
@@ -18,13 +21,22 @@ export class DashboardComponent implements OnInit {
   listChamadosAbertosDiario = []
   listChamadosFechadosDiario = []
 
-
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true,
     title: {
       display: true,
-      text: 'Chamados Fechados/Abertos'
+      text: 'Chamados Abertos'
+    }
+  }
+
+
+  public barChartOptionsF = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Chamados Fechados'
     }
   }
 
@@ -32,6 +44,11 @@ export class DashboardComponent implements OnInit {
   public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [{}];
+
+  public barChartLabelsF = [];
+  public barChartTypeF = 'bar';
+  public barChartLegendF = true;
+  public barChartDataF = [{}];
 
   public barChartLabelsM = [];
   public barChartTypeM = 'bar';
@@ -63,54 +80,197 @@ export class DashboardComponent implements OnInit {
     //   })
     // })
 
+    //Chamados Fechados Diario
     this.serviceDashboard.chamados(12)
-    .subscribe(chamadosApi =>{
+      .subscribe(chamadosApi => {
         chamadosApi
-        .map(async chamado =>{
-          //await this.barChartLabels.push(this.datepipe.transform(chamado.DataFechamento, 'dd/MM'))
-          await this.listChamadosFechadosDiario.push(chamado.ChamadosFechados)
-        })
-    })
+          .map(async chamado => {
+            await this.barChartLabelsF.push(this.datepipe.transform(chamado.DataFechamento, 'dd/MM'))
+            await this.listChamadosFechadosDiario.push(chamado.ChamadosFechados)
+          })
+      })
 
-    
+    //Chamados Abertos Diario
     this.serviceDashboard.chamados(15)
-    .subscribe(chamadosApi =>{
+      .subscribe(chamadosApi => {
         chamadosApi
-        .map(async chamado =>{
-          await this.barChartLabels.push(this.datepipe.transform(chamado.DataAbertura, 'dd/MM'))
-          await this.listChamadosAbertosDiario.push(chamado.ChamadosAbertos)
-        })
-    })
+          .map(async chamado => {
+            await this.barChartLabels.push(this.datepipe.transform(chamado.DataAbertura, 'dd/MM'))
+            await this.listChamadosAbertosDiario.push(chamado.ChamadosAbertos)
+          })
+      })
 
-  
+    //Chamados Mensal Fechados
     this.serviceDashboard.chamados(13)
-    .subscribe(chamadosApi =>{
+      .subscribe(chamadosApi => {
         chamadosApi
-        .map(async chamado =>{
-         await this.barChartLabelsM.push(chamado.MesFechamento)
-        await this.listChamadosFechadosMensal.push(chamado.ChamadosFechados)
-        })
-    })
+          .map(async chamado => {
+            await this.barChartLabelsM.push(chamado.MesFechamento)
+            await this.listChamadosFechadosMensal.push(chamado.ChamadosFechados)
+          })
+      })
 
-      
+    //Chamados Mensal Abertos
     this.serviceDashboard.chamados(16)
-    .subscribe(chamadosApi =>{
+      .subscribe(chamadosApi => {
         chamadosApi
-        .map(async chamado =>{
-          await this.listChamadosAbertosMensal.push(chamado.ChamadosAbertos)
-        })
-    })
+          .map(async chamado => {
+            await this.listChamadosAbertosMensal.push(chamado.ChamadosAbertos)
+          })
+      })
 
     this.barChartData = [
-      {data: this.listChamadosAbertosDiario, label: 'Abertos'},
-      {data: this.listChamadosFechadosDiario, label: 'Fechados'}
+      {
+        data: this.listChamadosAbertosDiario, label: 'Abertos'
+        // backgroundColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ],
+        // borderColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ],
+        // hoverBackgroundColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ]
+      }
+    ]
+
+    this.barChartDataF = [
+      {
+        data: this.listChamadosFechadosDiario, label: 'Fechados'
+        // backgroundColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ],
+        // borderColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ],
+        // hoverBackgroundColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ]
+      }
     ]
 
     this.barChartDataM = [
-      {data: this.listChamadosAbertosMensal, label: 'Abertos'},
-      {data: this.listChamadosFechadosMensal, label: 'Fechados'}
+      {
+        data: this.listChamadosAbertosMensal, label: 'Abertos'
+        // backgroundColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ],
+        // borderColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ],
+        // hoverBackgroundColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ]
+      },
+      {
+        data: this.listChamadosFechadosMensal, label: 'Fechados'
+        // backgroundColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ],
+        // borderColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ],
+        // hoverBackgroundColor: [
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000',
+        //   '#000000',
+        //   '#FF0000'
+        // ]
+      }
     ]
-
 
     this.serviceDashboard.chamados(10)
       .subscribe(chamadosApi => {
@@ -131,5 +291,8 @@ export class DashboardComponent implements OnInit {
       .subscribe(chamadosApi => {
         this.chamadosMensalAbertos = chamadosApi[0].chamadosAbertoMensal
       })
+
+
   }
+
 }
