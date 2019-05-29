@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from "../dashboard/dashboard.service";
+import { DatePipe } from '@angular/common/'
 
 @Component({
   selector: 'hp-chamado',
